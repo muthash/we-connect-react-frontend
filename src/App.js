@@ -1,16 +1,15 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { Route, BrowserRouter } from 'react-router-dom';
 
-import IndexPage from './components/IndexPage';
-import RegisterPage from './components/RegisterPage';
+import IndexPage from './components/index/IndexPage';
+// import RegisterPage from './components/register/RegisterPage';
 
 const App = () => (
   <BrowserRouter>
-      <div>
-          <Route exact path="/" component={IndexPage} />
-          <Route exact path="/register" component={RegisterPage} />
-      </div>
+    <div>
+      <Route exact path="/" component={IndexPage} />
+
+    </div>
   </BrowserRouter>
 );
 
