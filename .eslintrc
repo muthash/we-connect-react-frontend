@@ -49,6 +49,7 @@
       "react/jsx-no-duplicate-props": 1,
       "react/jsx-no-literals": 0,
       "react/jsx-no-undef": 1,
+      "react/jsx-one-expression-per-line": 0,
       "react/jsx-pascal-case": 1,
       "react/jsx-sort-prop-types": 0,
       "react/jsx-sort-props": 0,
@@ -66,6 +67,13 @@
       "react/react-in-jsx-scope": 1,
       "react/self-closing-comp": 1,
       "react/sort-comp": 1,
-      "react/jsx-wrap-multilines": 1
+      "react/jsx-wrap-multilines": 1,
+      "jsx-a11y/label-has-for": [ 0, {
+        "components": [ "Label" ],
+        "required": {
+            "every": [ "nesting", "id" ]
+        },
+        "allowChildren": false
+      }]
     }
   }
