@@ -185,6 +185,9 @@ height: 60vh;
 #home .home-thumb {
 padding-top: 0px;
 }
+#home .register-thumb {
+padding-top: 0px;
+}
 }
 
 @media (max-width: 768px) {
@@ -233,6 +236,11 @@ display: inline-block;
 }
 
 #home .home-thumb {
+padding-top: 32px;
+padding-left: 0px;
+}
+
+#home .register-thumb {
 padding-top: 32px;
 padding-left: 0px;
 }
