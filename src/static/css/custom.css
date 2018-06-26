@@ -1,5 +1,5 @@
 section.masthead {
-    padding-top: 10rem;
+    padding-top: 0;
     padding-bottom: calc(10rem - 56px);
     background-position: center center;
     -webkit-background-size: cover;
@@ -33,7 +33,7 @@ section.masthead {
     z-index: 1;
     background: #FFFFFF;
     max-width: 400px;
-    padding: 30px;
+    padding: 20px;
     text-align: left;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   }
@@ -42,13 +42,20 @@ section.masthead {
     z-index: 1;
     background: #FFFFFF;
     max-width: 500px;
+    max-height: 480px;
     padding: 30px;
     text-align: left;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   } 
-.nav-color {
-  background-color: #4B413F;
-}
-.align-link{
-  text-align: center !important;
-}
+  .form-register label{
+    color: #000;
+  }
+  .form-register .invalid-feedback{
+    color: rgb(238, 15, 15);
+  }  
+  .align{
+    float: right;
+  }
+  .form-register form .btn-success{
+    font-size: 18px;
+  }
