@@ -20,7 +20,7 @@ Home section
     }
     
     #home .overlay {
-    background: #4776E6; /* fallback for old browsers */
+    background: rgba(71, 119, 230, 0.075); /* fallback for old browsers */
     background: -webkit-linear-gradient(to left, #4776E6 , #8E54E9); /* Chrome 10-25, Safari 5.1-6 */ 
     background: linear-gradient(to left, #4776E6 , #8E54E9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     opacity: 0.9;
@@ -51,4 +51,38 @@ Home section
     #home .section-btn:hover {
     background: transparent !important;
     }
+    .dash {
+        background: #535bd4 url('../img/headers.jpg') no-repeat;
+        background-size: cover;
+        background-position: center center;
+        color: #000000;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        height: 80vh;
+        position: relative;
+    }
+
+/*---------------------------------------
+Register section              
+-----------------------------------------*/
+#home .register-thumb {
+    padding-top: 0;
+    padding-left: 32px;
+}
+#home .register-thumb h1{
+    padding-top: 0;
+}
+@media (max-width: 980px) {      
+    #home .register-thumb h1{
+        margin-top: 349px;
+    }
+    #home .register-thumb .section-btn{
+        margin-bottom: 10px;
+    }
+}
     
