@@ -6,7 +6,7 @@ import Footer from '../Footer';
 
 const IndexPage = () => (
   <div>
-    <Navbar />
+    <Navbar wrapHome="active" />
     <IndexBody />
     <Footer />
   </div>
