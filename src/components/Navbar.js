@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../static/css/navbar.css';
 
-const Navbar = () => (
+const Navbar = ({wrapHome, wrapRegister, wrapLogin}) => (
   <div>
     <nav className="navbar navbar-default navbar-fixed-top">
       <div className="container">
@@ -21,24 +21,19 @@ const Navbar = () => (
         </div>
         <div className="collapse navbar-collapse">
           <ul className="nav navbar-nav navbar-right">
-            <li className="active">
-              <Link to="/" className="">
+            <li className={wrapHome}>
+              <Link to="/">
                 Home
               </Link>
             </li>
-            <li>
-              <Link to="/listings" className="smoothScroll">
-                Business Listings
-              </Link>
-            </li>
-            <li>
-              <Link to="/register" className="smoothScroll">
+            <li className={wrapRegister}>
+              <Link to="/register">
                 Register
               </Link>
             </li>
-            <li>
-              <Link to="/login" className="smoothScroll">
-                Login
+            <li className={wrapLogin}>
+              <Link to="/login">
+                Log In
               </Link>
             </li>
           </ul>
