@@ -1,24 +1,32 @@
 import React, {Component} from 'react';
-import {Redirect} from 'react-router-dom';
 
 import Navbar from '../Navbar';
 import RegisterForm from './RegisterForm';
 import Footer from '../Footer';
 
 class RegisterPage extends Component{
-    state = {
-        message: undefined,
-        emailErr: undefined,
-        usernameErr: undefined,
-        passwordErr: undefined,
-        disabled: false
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: '',
+      email: '',
+      password: '',
+      message: undefined,
+      emailErr: undefined,
+      usernameErr: undefined,
+      passwordErr: undefined,
+      disabled: false
+    } 
+  }  
+  
+    handleChange = e => {
+      const { name, value } = e.target;
+      this.setState({ [name]: value });
     }
-    
+
     handleSubmit = async (event) => {
       event.preventDefault();
-      const email = event.target.email.value;
-      const username = event.target.username.value;
-      const password = event.target.password.value;
+      const { username, email, password } = this.state;
 
       this.setState({disabled: "disabled"});
 
@@ -42,6 +50,12 @@ class RegisterPage extends Component{
             });
         }
       };
+      const registerFail = () => {
+        this.setState ({
+          message: "Login attempt failed. Try Again",
+          disabled: false
+          });
+      };
       await fetch('https://wc-app-api.herokuapp.com/api/v1/register', {
             method: 'POST',
             headers: {
@@ -58,22 +72,16 @@ class RegisterPage extends Component{
         })
         .then((resp) => resp.json())
         .then(newStatus)
-        .catch(function (error) {
-          console.log('Request failed due to', error);
-        });
+        .catch(registerFail);
     }
     render(){
-      const {message, emailErr, usernameErr, passwordErr, disabled} = this.state;
         return(
           <div>
             <Navbar wrapRegister="active" />
             <RegisterForm 
               handleSubmit={this.handleSubmit}
-              message={message}
-              emailErr={emailErr}
-              usernameErr={usernameErr}
-              passwordErr={passwordErr}
-              disabled={disabled}
+              handleChange={this.handleChange}
+              state={this.state}
             />
             <Footer />
           </div>
