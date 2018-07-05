@@ -1,6 +1,6 @@
 body {
     background: #1c1c1c;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Glegoo', serif;
     font-style: normal;
     font-weight: 300;
     padding-top: 70px;
@@ -14,7 +14,7 @@ Typorgraphy
 
 h1,h2,h3,h4,h5,h6,
 .navbar-default, .btn {
-font-family: 'Unica One', cursive;
+font-family: 'PT Sans Narrow', sans-serif;
 font-weight: 400;
 }
 
@@ -80,6 +80,11 @@ border-right-color: #222;
 border-bottom-color: #ffffff;
 border-left-color: #222;
 color: #ffffff;
+}
+
+.paginate{
+    margin-top: 0px;
+    position: relative;
 }
 
 
