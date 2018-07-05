@@ -4,7 +4,7 @@ import '../../static/css/custom.css';
 import '../../static/css/indexBody.css';
 
 
-const RegisterForm = ({handleSubmit, message, usernameErr, emailErr, passwordErr, disabled}) => (
+const RegisterForm = ({handleSubmit, handleChange, state}) => (
   <div>
     <section id="home" className="main">
       <div className="overlay" />
@@ -24,7 +24,7 @@ const RegisterForm = ({handleSubmit, message, usernameErr, emailErr, passwordErr
           <div className="col-md-6 col-sm-12 col-xs-12">
             <section className="masthead">
               <div className="form-register"> 
-                {message && <div className="alert alert-danger" role="alert">{message}</div>}
+                {state.message && <div className="alert alert-danger" role="alert">{state.message}</div>}
                 <form onSubmit={handleSubmit}>
                   <div className="form-group">
                     <label htmlFor="username" className="col-form-label col-form-label-sm">
@@ -34,32 +34,52 @@ const RegisterForm = ({handleSubmit, message, usernameErr, emailErr, passwordErr
                       <span className="input-group-addon" id="sizing-addon1">
                         @
                       </span>
-                      <input name="username" type="text" className="form-control" />
+                      <input 
+                        id="username"
+                        name="username" 
+                        type="text" 
+                        className="form-control"
+                        value={state.username}
+                        onChange={handleChange}
+                      />
                     </div>
-                    {usernameErr && <div className="invalid-feedback">{usernameErr}</div>}
+                    {state.usernameErr && <div className="invalid-feedback">{state.usernameErr}</div>}
                   </div>
 
                   <div className="form-group">
                     <label htmlFor="email" className="col-form-label col-form-label-sm">
                       Email address
                     </label>
-                    <input name="email" type="email" className="form-control" />
-                    {emailErr && <div className="invalid-feedback">{emailErr}</div>}
+                    <input 
+                      name="email"
+                      id="useremail"
+                      type="email" 
+                      className="form-control"
+                      value={state.email}
+                      onChange={handleChange}
+                    />
+                    {state.emailErr && <div className="invalid-feedback">{state.emailErr}</div>}
                   </div>
 
                   <div className="form-group">
                     <label htmlFor="PasswordInput" className="col-form-label col-form-label-sm">
                       Password
                     </label>
-                    <input name="password" type="password" className="form-control" />
+                    <input 
+                      name="password"
+                      type="password"
+                      className="form-control"
+                      value={state.password}
+                      onChange={handleChange}
+                    />
                     <small id="passwordHelpBlock" className="form-text text-muted">
                         Use at least one lowercase letter, one numeral, and seven characters.
                     </small>
-                    {passwordErr && <div className="invalid-feedback">{passwordErr}</div>}
+                    {state.passwordErr && <div className="invalid-feedback">{state.passwordErr}</div>}
                   </div>
                   <div className="form-group">
-                    <button type="submit" className="btn btn-success btn-block" disabled={disabled}>
-                      {disabled ? 'Sending ...' : 'Sign up for WeConnect'}
+                    <button type="submit" className="btn btn-success btn-block" disabled={state.disabled}>
+                      {state.disabled ? 'Sending ...' : 'Sign up for WeConnect'}
                     </button>
                     <small className="form-text text-muted align">
                       Already Registered?
