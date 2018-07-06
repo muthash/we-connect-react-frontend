@@ -64,4 +64,4 @@ use npm or yarn
         $ yarn  test -- -u --coverage
 ## Authors
 
-* **Steve Muthama** - [zenjutahi](https://github.com/muthash)
+* **Steve Muthama** - [muthash](https://github.com/muthash)
