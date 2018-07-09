@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow, mount, render } from 'enzyme';
 import BusinessBody from '../components/business/BusinessBody';
-import DashBody from '../components/dashboard/DashBody'
+import DashBody from '../components/dashboard/DashBody';
 
 
 describe('Index page Component', () => {
