@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {loggedIn} from '../utils';
  
 import Navdash from '../Navdash';
 import '../../static/css/custom.css';
@@ -29,7 +30,8 @@ const UpdateBody = ({handleSubmit, handleChange, state, name, desc}) => (
                           <label htmlFor="name">Business name</label>
                           <input 
                             type="text" 
-                            name="businessName" 
+                            name="businessName"
+                            id="businessName" 
                             className="form-control"
                             placeholder={name}
                             value={state.businessName}
@@ -88,6 +90,7 @@ class DashPage extends Component {
   constructor(){
     super();
     this.username= localStorage.getItem('username');
+    this.loggedIn= loggedIn
   }
   
   state = {
@@ -155,21 +158,6 @@ class DashPage extends Component {
             console.log('Request failed due to', error);
         });
     }
-
-  loggedIn() {
-    // Checks if there is a saved token
-    const token = localStorage.getItem('wcToken');
-    if (token === null) {
-      this.props.history.push({
-        pathname: '/login',
-        state: {
-          'success': "Please log in to continue",
-        }
-      });
-      } else{
-          return token;
-      }
-  }
 
   render(){
     const {messageAdd, messageFail} = this.state;

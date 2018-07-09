@@ -1,12 +1,16 @@
 import React, {Component} from 'react';
 import{Button, ButtonToolbar, Modal, FormControl, Alert} from 'react-bootstrap';
 
+import {loggedIn} from '../utils';
+
+
 class DeleteBiz extends Component {
   constructor(props, context) {
     super(props, context);
 
     this.handleShow = this.handleShow.bind(this);
     this.handleHide = this.handleHide.bind(this);
+    this.loggedIn = loggedIn
 
     this.state = {
       show: false,
@@ -75,21 +79,6 @@ class DeleteBiz extends Component {
   
     handleHide() {
       this.setState({ show: false });
-    }
-  
-    loggedIn() {
-      // Checks if there is a saved token
-      const token = localStorage.getItem('wcToken');
-      if (token === null) {
-        this.props.history.push({
-          pathname: '/login',
-          state: {
-            'success': "Please log in to continue",
-          }
-        });
-        } else{
-            return token;
-        }
     }
 
   render() {

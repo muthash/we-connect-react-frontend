@@ -1,6 +1,8 @@
 import {Component} from 'react';
+import {loggedIn} from '../utils';
 
 class RegBusiness extends Component{
+    loggedIn = loggedIn;
     state = {
         messageAdd: undefined,
         messageFail: undefined,
@@ -64,21 +66,6 @@ class RegBusiness extends Component{
         .catch(function (error) {
             console.log('Request failed due to', error);
         });
-    }
-    
-    loggedIn() {
-        // Checks if there is a saved token and it's still valid
-        const token = localStorage.getItem('wcToken');
-        if (token === null) {
-            this.props.history.push({
-                pathname: '/login',
-                state: {
-                  'success': "Please log in to continue",
-                }
-            });
-        } else{
-            return token;
-        }
     }
 }
 
