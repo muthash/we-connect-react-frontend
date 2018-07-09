@@ -1,8 +1,11 @@
 import React from "react";
-import {withRouter} from "react-router-dom";
+
+import {loggedIn} from '../utils';
 import '../../static/css/loader.css';
 
 class Logout extends React.Component {
+  loggedIn = loggedIn
+  
   componentDidMount() {
     fetch('https://wc-app-api.herokuapp.com/api/v1/logout', {
       method: "POST",
@@ -20,21 +23,6 @@ class Logout extends React.Component {
         window.location.assign("/login");
       }
     });
-  }
-
-  loggedIn() {
-    // Checks if there is a saved token
-    const token = localStorage.getItem('wcToken');
-    if (token === null) {
-      this.props.history.push({
-        pathname: '/login',
-        state: {
-          'success': "Please log in to continue",
-        }
-      });
-      } else{
-          return token;
-      }
   }
 
   render() {
