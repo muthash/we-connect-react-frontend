@@ -15,7 +15,8 @@ class LoginPage extends React.Component{
     resDisabled: false,
     resMessage: undefined,
     resEmailErr: undefined,
-    resFail: undefined
+    resFail: undefined,
+    success: this.props.location.state === undefined ? false : this.props.location.state.success
   }
   setToken(idToken) {
     localStorage.setItem('wcToken', idToken);  
@@ -123,7 +124,7 @@ class LoginPage extends React.Component{
       <div>
         <Navbar wrapLogin="active" />
         <LoginForm
-          success={this.props.location.state === undefined ? false : this.props.location.state.success}
+          success={this.state.success}
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
           handleReset={this.handleReset}
