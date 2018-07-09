@@ -35,6 +35,13 @@ describe('Register page Component', () => {
         expect(instance.state.email).toEqual('blah@gmail.com');
     });
 
+    it('should disable button on submit', () => {
+        const emailInput = mount(<MemoryRouter><RegisterPage /></MemoryRouter>);
+        const instance = emailInput.find(RegisterPage).instance();
+        emailInput.find('#useremail').simulate('submit');
+        expect(instance.state.disabled).toEqual('disabled');
+    });
+
     describe('error message', () => {
         const state= {usernameErr: "There is an error here"};
         it('displays errror message', () => {

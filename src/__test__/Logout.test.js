@@ -35,5 +35,5 @@ describe('Logout page Component', () => {
   it('should render div class', () => {
         const data = shallow(<Logout history={mockUrl} />);
         expect(data.find('.container').exists()).toBe(true);
-    });
+  });
 });

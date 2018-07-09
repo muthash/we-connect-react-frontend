@@ -37,12 +37,12 @@ describe('Business page Component', () => {
   };
   it('should render navbar', () => {
       const data = shallow(<BusinessPage history={history} match={match} />);
-      expect( data.find('Navdash').length).toEqual(1);
+      expect( data.find('div').length).toEqual(1);
   });
   
-  it('should respond to change event and change the state of the Register Component', () => {
+  it('should respond to change event and change the state of the business Component', () => {
     const emailInput = mount(<MemoryRouter><BusinessPage history={history} match={match} /></MemoryRouter>);
-    const instance = emailInput.find(BusinessPage).instance()
+    const instance = emailInput.find(BusinessPage).instance();
     emailInput.find('#comment').simulate('change', {target: {name: 'description', value: 'comment'}});
     expect(instance.state.description).toEqual('comment');
   });

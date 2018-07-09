@@ -105,7 +105,7 @@ class BusinessPage extends Component {
       else{
         this.setState({messageFail: response.message, descErr: response['description-error'], disabled: false});
       }
-    }
+    };
     await fetch('https://wc-app-api.herokuapp.com/api/v1/businesses/'+ id +'/reviews', {
       method: 'POST',
       headers: {
@@ -121,10 +121,7 @@ class BusinessPage extends Component {
     )
     })
     .then((resp) => resp.json())
-    .then(postReview)
-    .catch(function(err){
-      console.log('Fetch Error :-S', err);
-    });
+    .then(postReview);
   }
 
   render(){
