@@ -29,10 +29,11 @@ global.localStorage = new LocalStorageMock;
 
 describe('Logout page Component', () => {
 
-    it('should render div class', () => {
-        const data = shallow(<Logout />);
-        console.log(data.find('#cont'))
-        expect(data.find('.container').exists()).toBe(false);
-        expect( data.length).toEqual(1);
+  const mockUrl = {
+    push : jest.fn()
+  };  
+  it('should render div class', () => {
+        const data = shallow(<Logout history={mockUrl} />);
+        expect(data.find('.container').exists()).toBe(true);
     });
 });
