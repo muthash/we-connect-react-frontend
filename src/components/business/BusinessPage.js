@@ -2,6 +2,7 @@ import React, {Component} from 'react';
  
 import Navdash from '../Navdash';
 import BusinessBody from './BusinessBody';
+import {loggedIn} from '../utils';
 
 const Reviews = (props) => (
   <div>
@@ -17,6 +18,7 @@ class BusinessPage extends Component {
   constructor(){
     super();
     this.username= localStorage.getItem('username');
+    this.loggedIn = loggedIn;
   }
 
   state = {
@@ -124,22 +126,7 @@ class BusinessPage extends Component {
       console.log('Fetch Error :-S', err);
     });
   }
-  
-  loggedIn() {
-    // Checks if there is a saved token
-    const token = localStorage.getItem('wcToken');
-    if (token === null) {
-      this.props.history.push({
-        pathname: '/login',
-        state: {
-          'success': "Please log in to continue",
-        }
-      });
-      } else{
-          return token;
-      }
-  }
-  
+
   render(){
     return(
       <div>
