@@ -1,6 +1,6 @@
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
-import { shallow, mount, render } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
 
 import LoginPage from '../components/login/LoginPage';
@@ -23,9 +23,9 @@ describe('Login page Component', () => {
         expect( data.find('LoginForm').length).toEqual(1);
     });
 
-    it('should respond to change event and change the state of the Register Component', () => {
+    it('should respond to change event and change the state of the login email Component', () => {
         const emailInput = mount(<MemoryRouter><LoginPage location={mockUrl} /></MemoryRouter>);
-        const instance = emailInput.find(LoginPage).instance()
+        const instance = emailInput.find(LoginPage).instance();
         emailInput.find('#useremail').simulate('change', {target: {name: 'email', value: 'blah@gmail.com'}});
         expect(instance.state.email).toEqual('blah@gmail.com');
     });
@@ -38,5 +38,4 @@ describe('Login page Component', () => {
             expect(nameError.text()).toBe('There is an error here');
         });
     });
-
 });

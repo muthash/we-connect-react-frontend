@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import RegistryPage from '../components/registry/RegistryPage';
 import RegistryBody from '../components/registry/RegistryBody';
 import Paginate from '../components/registry/Paginate';
 
@@ -53,6 +52,7 @@ describe('Registry page Component', () => {
       const data = shallow(<RegistryBody state={state} history={history} />);
       expect( data.find('section').length).toEqual(1);
   });
+
   it('should render pagination', () => {
     const data = shallow(<Paginate state={state} currentPage={2} pages={1} history={history} />);
     expect( data.find('section').length).toEqual(1);

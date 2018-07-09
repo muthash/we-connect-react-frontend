@@ -1,5 +1,6 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
+import { MemoryRouter } from 'react-router-dom';
 import BusinessPage from '../components/business/BusinessPage';
 
 class LocalStorageMock {
@@ -37,6 +38,13 @@ describe('Business page Component', () => {
   it('should render navbar', () => {
       const data = shallow(<BusinessPage history={history} match={match} />);
       expect( data.find('Navdash').length).toEqual(1);
+  });
+  
+  it('should respond to change event and change the state of the Register Component', () => {
+    const emailInput = mount(<MemoryRouter><BusinessPage history={history} match={match} /></MemoryRouter>);
+    const instance = emailInput.find(BusinessPage).instance()
+    emailInput.find('#comment').simulate('change', {target: {name: 'description', value: 'comment'}});
+    expect(instance.state.description).toEqual('comment');
   });
 
 });

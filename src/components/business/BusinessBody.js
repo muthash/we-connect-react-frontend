@@ -47,7 +47,8 @@ const BusinessBody = ({handleReview, reviews, business_name, description, locati
                         <div className="form-group">
                           <label htmlFor="description">Comment</label>
                           <textarea 
-                            name="description" 
+                            name="description"
+                            id="comment" 
                             className="form-control" 
                             rows="3"
                             value={state.description}
