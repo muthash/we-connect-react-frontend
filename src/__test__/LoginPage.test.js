@@ -18,11 +18,6 @@ describe('Login page Component', () => {
         expect( data.find('Navbar').length).toEqual(1);
     });
 
-    it('should render register page', () => {
-        const data = shallow(<LoginPage location={mockUrl} />);
-        expect( data.find('LoginForm').length).toEqual(1);
-    });
-
     it('should respond to change event and change the state of the login email Component', () => {
         const emailInput = mount(<MemoryRouter><LoginPage location={mockUrl} /></MemoryRouter>);
         const instance = emailInput.find(LoginPage).instance();

@@ -7,25 +7,9 @@ import RegisterForm from '../components/register/RegisterForm';
 
 describe('Register page Component', () => {
 
-    const state = {
-        username: '',
-        email: '',
-        password: '',
-        message: undefined,
-        emailErr: undefined,
-        usernameErr: undefined,
-        passwordErr: undefined,
-        disabled: false
-    }
-
     it('should render navbar', () => {
         const data = shallow(<RegisterPage />);
         expect( data.find('Navbar').length).toEqual(1);
-    });
-
-    it('should render register page', () => {
-        const data = shallow(<RegisterPage />);
-        expect( data.find('RegisterForm').length).toEqual(1);
     });
 
     it('should respond to change event and change the state of the Register Component', () => {

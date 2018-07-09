@@ -1,6 +1,9 @@
+[![Build Status](https://travis-ci.org/muthash/wc_react.svg?branch=ft-wc-react)](https://travis-ci.org/muthash/wc_react)
+[![Coverage Status](https://coveralls.io/repos/github/muthash/wc_react/badge.svg?branch=ft-wc-react)](https://coveralls.io/github/muthash/wc_react?branch=ft-wc-react)
+
 # WeConnect
 
-This is a web application for the WeConnect API, a platform that brings businesses and individuals together. This platform creates awareness for businesses and gives the users the ability to:
+This is a web application that consumes the WeConnect API, a platform that brings businesses and individuals together. This platform creates awareness for businesses and gives the users the ability to:
 
 - Register an account and Login into it.
 - Register, Update and delete a Business .

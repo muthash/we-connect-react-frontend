@@ -32,22 +32,6 @@ describe('Registry page Component', () => {
     push: jest.fn()
   };
   const state = {};
-  const response = {
-    "businesses": [
-        {
-            "business_id": 1,
-            "business_name": "Mandela",
-            "category": "Advertising",
-            "created_by": "stephen",
-            "description": "Andela’s mission is to advance human potential",
-            "location": "Nairobi"
-        }
-    ],
-    "current": 3,
-    "next_page": null,
-    "pages": 3,
-    "prev_page": 2
-  };
   it('should render without error', () => {
       const data = shallow(<RegistryBody state={state} history={history} />);
       expect( data.find('section').length).toEqual(1);
