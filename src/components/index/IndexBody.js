@@ -21,7 +21,7 @@ const IndexBody = () => (
                 awareness for businesses and gives the users the ability to write reviews about the businesses they
                 have interacted with.
               </p>
-              <Link to="/listings" className="section-btn btn btn-success">
+              <Link to="/login" className="section-btn btn btn-success">
                 View business listings
               </Link>
             </div>

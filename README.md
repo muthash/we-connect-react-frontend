@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/muthash/wc_react.svg?branch=ft-wc-react)](https://travis-ci.org/muthash/wc_react)
 [![Coverage Status](https://coveralls.io/repos/github/muthash/wc_react/badge.svg?branch=ft-wc-react)](https://coveralls.io/github/muthash/wc_react?branch=ft-wc-react)
+[![Maintainability](https://api.codeclimate.com/v1/badges/203b33659a9a03fefc59/maintainability)](https://codeclimate.com/github/muthash/wc_react/maintainability)
 
 # WeConnect
 
