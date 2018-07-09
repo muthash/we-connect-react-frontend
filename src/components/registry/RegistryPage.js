@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Navbar from '../Navdash';
 import RegistryBody from './RegistryBody';
 import Paginate from './Paginate';
+import {loggedIn} from '../utils';
 import biz from '../../static/img/biz.jpg';
 
 const Business = (props) => (
@@ -26,6 +27,7 @@ class RegistryPage extends Component{
   constructor(){
     super();
     this.username= localStorage.getItem('username');
+    this.loggedIn = loggedIn;
   }
   state = {
     business: [],
@@ -39,7 +41,7 @@ class RegistryPage extends Component{
     this.handleGet(); 
   }
 
-  handleGet = async (event) => {
+  handleGet = async () => {
     const getBusiness = response => {
       if (response.hasOwnProperty('businesses')){
         let businesses = response.businesses.map((biz) => {
@@ -88,7 +90,7 @@ class RegistryPage extends Component{
   }
   
   mapBusiness = response => {
-    let business = response.businesses ? response.businesses : false
+    let business = response.businesses ? response.businesses : false;
     let businesses = business ? business.map((biz) => {
       return(<Business
           key={biz['business_id']}
@@ -99,16 +101,16 @@ class RegistryPage extends Component{
           category={biz['category']}
           posted={biz['created_by']}
           />
-      );}) : this.componentDidMount()
+      );}) : this.componentDidMount();
 
       this.setState({
         business: businesses
-      })
+      });
   }
 
   handleSearch = async (event) => {
     event.preventDefault();
-    const search = event.target.search.value
+    const search = event.target.search.value;
     fetch(`https://wc-app-api.herokuapp.com/api/v1/search?q=${search}`, {
       method: 'GET',
       headers: {
@@ -118,13 +120,13 @@ class RegistryPage extends Component{
       }
     })
     .then((resp) => resp.json())
-    .then(this.mapBusiness)
+    .then(this.mapBusiness);
   }
 
   handleFilter = async (event) => {
     event.preventDefault();
-    const cat = event.target.category.value
-    const loc = event.target.location.value
+    const cat = event.target.category.value;
+    const loc = event.target.location.value;
     fetch(`https://wc-app-api.herokuapp.com/api/v1/businesses?cat=${cat}&loc=${loc}`, {
       method: 'GET',
       headers: {
@@ -134,27 +136,11 @@ class RegistryPage extends Component{
       }
     })
     .then((resp) => resp.json())
-    .then(this.mapBusiness)
+    .then(this.mapBusiness);
   }
 
   handlePageChanged = ( newPage ) => {
-    this.setState({ currentPage: newPage}, () => {this.handleGet()});
-    
-  }
-
-  loggedIn() {
-    // Checks if there is a saved token
-    const token = localStorage.getItem('wcToken');
-    if (token === null) {
-      this.props.history.push({
-        pathname: '/login',
-        state: {
-          'success': "Please log in to continue",
-        }
-      });
-      } else{
-          return token;
-      }
+    this.setState({ currentPage: newPage}, () => {this.handleGet();});  
   }
 
   render(){
@@ -177,7 +163,7 @@ class RegistryPage extends Component{
         handlePageChanged={this.handlePageChanged}
       />
     </div>
-   )
+   );
  }
 }
 
