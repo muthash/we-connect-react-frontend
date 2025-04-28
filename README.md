@@ -4,15 +4,15 @@
 
 # WeConnect
 
-This is a web application that consumes the WeConnect API, a platform that brings businesses and individuals together. This platform creates awareness for businesses and gives the users the ability to:
+This web application consumes the we-connect-flask-backend, a platform that brings businesses and individuals together. This platform creates awareness for businesses and gives the users the ability to:
 
-- Register an account and Login into it.
-- Register, Update and delete a Business .
+- Register an account and log in to it.
+- Register, update and delete a Business.
 - View all Businesses.
 - View a Business profile.
 - Post Reviews to a business.
-- View all Reviews to a business
-- Reset a users password
+- View all Reviews for a business
+- Reset a user's password
 - Search and filter businesses
 
 ## Prerequisites
@@ -26,9 +26,9 @@ This is a web application that consumes the WeConnect API, a platform that bring
 
 ## Installation
 
-#### 1. Clone the Github Repositorty'
+#### 1. Clone the GitHub Repository.
 
-use npm or yarn
+Use npm or yarn
   using npm
 
 
